@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="592.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication2.NewhomeController">
+   <top>
+      <AnchorPane prefHeight="73.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar layoutX="-2.0" layoutY="2.0" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="25.0" prefWidth="600.0">
+              <menus>
+                  <Menu fx:id="mnhome" mnemonicParsing="false" onAction="#goHome" text="HOME">
+                     <items>
+                        <MenuItem fx:id="mihome" mnemonicParsing="false" onAction="#goHome" text="home" />
+                     </items></Menu>
+                <Menu mnemonicParsing="false" text="STOCK">
+                  <items>
+                    <MenuItem fx:id="michkstk" mnemonicParsing="false" onAction="#chekingStock" text="check stock" />
+                        <MenuItem fx:id="miaddstk" mnemonicParsing="false" onAction="#addingStock" text="add stock" />
+                        <MenuItem fx:id="mirmstk" mnemonicParsing="false" onAction="#removingStock" text="remove stock" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="SELL">
+                  <items>
+                    <MenuItem fx:id="mithissale" mnemonicParsing="false" onAction="#sellVehicle" text="this sale" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="ANALYSE SALES">
+                  <items>
+                    <MenuItem fx:id="miitemssold" mnemonicParsing="false" onAction="#checkItemsSold" text="items sold" />
+                        <MenuItem fx:id="miprofits" mnemonicParsing="false" onAction="#checkingProfits" text="profits" />
+                        <MenuItem fx:id="midebts" mnemonicParsing="false" onAction="#checkingDebts" text="debts" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="CUSTOMERS">
+                    <items>
+                      <MenuItem fx:id="micus" mnemonicParsing="false" onAction="#getCustomersFromDB" text="customers" />
+                    </items>
+                  </Menu>
+              </menus>
+            </MenuBar>
+            <ImageView fitHeight="42.0" fitWidth="45.0" layoutX="8.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@usericn.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="57.0" layoutY="37.0" text="user" />
+            <Label fx:id="lbdatte" layoutX="539.0" layoutY="41.0" text="date" />
+            <Label fx:id="lbtoperros" alignment="CENTER" contentDisplay="CENTER" layoutX="146.0" layoutY="36.0" prefHeight="27.0" prefWidth="341.0" textFill="#f20b07">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
+   <bottom>
+      <AnchorPane prefHeight="47.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="logOutbt" layoutX="505.0" layoutY="11.0" mnemonicParsing="false" onAction="#logingOut" text="log out" />
+         </children>
+      </AnchorPane>
+   </bottom>
+   <center>
+      <StackPane prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <ScrollPane fx:id="spchkstk" opacity="0.99" prefHeight="200.0" prefWidth="200.0">
+               <content>
+                  <AnchorPane prefHeight="278.0" prefWidth="599.0">
+                     <children>
+                        <Button fx:id="btallav" layoutX="1.0" layoutY="4.0" mnemonicParsing="false" onAction="#checkStock" prefHeight="58.0" prefWidth="84.0" text="all available" />
+                        <Button fx:id="bttoy" layoutX="3.0" layoutY="68.0" mnemonicParsing="false" onAction="#checkStock" prefHeight="56.0" prefWidth="82.0" text="TOYOTA" />
+                        <Button fx:id="btmits" layoutX="2.0" layoutY="132.0" mnemonicParsing="false" onAction="#checkStock" prefHeight="53.0" prefWidth="83.0" text="MITSUBISHI" />
+                        <Button fx:id="btniss" layoutX="2.0" layoutY="195.0" mnemonicParsing="false" onAction="#checkStock" prefHeight="49.0" prefWidth="83.0" text="NISSAN" />
+                        <Button fx:id="btisuzu" layoutX="2.0" layoutY="252.0" mnemonicParsing="false" onAction="#checkStock" prefHeight="56.0" prefWidth="83.0" text="ISUZU" />
+                        <Button fx:id="btaudi" layoutX="2.0" layoutY="317.0" mnemonicParsing="false" onAction="#checkStock" prefHeight="55.0" prefWidth="84.0" text="AUDI" />
+                        <Button fx:id="btbmw" layoutX="3.0" layoutY="380.0" mnemonicParsing="false" onAction="#checkStock" prefHeight="49.0" prefWidth="85.0" text="BMW" />
+                        <AnchorPane layoutX="92.0" layoutY="-1.0" prefHeight="585.0" prefWidth="495.0">
+                           <children>
+                              <Label fx:id="chkstklb" alignment="CENTER" layoutX="-2.0" prefHeight="438.0" prefWidth="421.0" text="WE GOT WHAT YOU NEED 😊" textFill="#5f972f">
+                                 <font>
+                                    <Font name="Lucida Handwriting Italic" size="20.0" />
+                                 </font></Label>
+                              <TableView fx:id="tbviewsc" layoutX="-4.0" prefHeight="585.0" prefWidth="498.0" visible="false">
+                                <columns>
+                                  <TableColumn fx:id="tcbrandsc" prefWidth="83.0" text="BRAND" />
+                                  <TableColumn fx:id="tcmodelsc" prefWidth="76.0" text="MODEL" />
+                                    <TableColumn fx:id="tcyearsc" prefWidth="75.0" text="YEAR" />
+                                    <TableColumn fx:id="tcchasssc" prefWidth="98.0" text="CHASSIS" />
+                                    <TableColumn fx:id="tcbpsc" prefWidth="79.0" text="BUY PRICE" />
+                                    <TableColumn fx:id="tcrpsc" prefWidth="85.0" text="SELL PRICE" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <ScrollPane fx:id="sphome" prefHeight="200.0" prefWidth="200.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="410.0" prefWidth="599.0">
+                     <children>
+                        <ImageView fx:id="homeimage" fitHeight="569.0" fitWidth="894.0" layoutX="-207.0" layoutY="-85.0" nodeOrientation="INHERIT" opacity="0.85" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-74.0" AnchorPane.leftAnchor="-207.0" AnchorPane.rightAnchor="-88.0" AnchorPane.topAnchor="-85.0">
+                           <image>
+                              <Image url="@SdXflfk.jpg" />
+                           </image>
+                        </ImageView>
+                     </children></AnchorPane>
+              </content>
+            </ScrollPane>
+            <ScrollPane fx:id="spaddstk" prefHeight="200.0" prefWidth="200.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="425.0" prefWidth="584.0">
+                     <children>
+                        <Text layoutX="112.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please input the correct details of the vehicle you wish to add.">
+                           <font>
+                              <Font name="System Bold Italic" size="12.0" />
+                           </font>
+                        </Text>
+                        <Label layoutX="65.0" layoutY="53.0" text="BRAND" AnchorPane.leftAnchor="69.0">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="71.0" layoutY="85.0" text="MAKE" AnchorPane.leftAnchor="69.0">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="65.0" layoutY="122.0" text="Y.O.M" AnchorPane.leftAnchor="69.0">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="69.0" layoutY="155.0" text="CHASSIS NUMBER" AnchorPane.leftAnchor="69.0">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="83.0" layoutY="196.0" text="BUYING PRICE" AnchorPane.leftAnchor="69.0">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="69.0" layoutY="234.0" text="RESALE PRICE" AnchorPane.leftAnchor="69.0">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="btaddstk" layoutX="322.0" layoutY="269.0" mnemonicParsing="false" onAction="#adddingStock" text="ADD" />
+                        <TextField fx:id="txtbrand" layoutX="267.0" layoutY="49.0" promptText="eg, Toyota, Audi..." AnchorPane.leftAnchor="267.0">
+                           <font>
+                              <Font name="System Italic" size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="txtmake" layoutX="267.0" layoutY="81.0" promptText="eg Prius, " AnchorPane.leftAnchor="267.0">
+                           <font>
+                              <Font name="System Italic" size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="txtchass" layoutX="286.0" layoutY="151.0" promptText="chassis number" AnchorPane.leftAnchor="267.0">
+                           <font>
+                              <Font name="System Italic" size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="txtyom" layoutX="286.0" layoutY="118.0" promptText="year of manufucture" AnchorPane.leftAnchor="267.0">
+                           <font>
+                              <Font name="System Italic" size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="txtbp" layoutX="302.0" layoutY="192.0" prefHeight="24.0" prefWidth="151.0" promptText="do not include commas &quot;,&quot;" AnchorPane.leftAnchor="267.0">
+                           <font>
+                              <Font name="System Italic" size="11.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="txtrp" layoutX="302.0" layoutY="230.0" promptText="do not include &quot;,&quot;" AnchorPane.leftAnchor="267.0" AnchorPane.topAnchor="230.0">
+                           <font>
+                              <Font name="System Italic" size="12.0" />
+                           </font>
+                        </TextField>
+                        <Label fx:id="lberroraddstk" alignment="CENTER" contentDisplay="CENTER" layoutX="105.0" layoutY="22.0" prefHeight="17.0" prefWidth="380.0" textFill="#f53e16" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+            
+            <ScrollPane fx:id="sprmstk" prefHeight="200.0" prefWidth="200.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="276.0" prefWidth="596.0">
+                     <children>
+                        <Text layoutX="102.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To remove a vehicle from stocklist, please input the correct chassis number.">
+                           <font>
+                              <Font name="System Bold Italic" size="12.0" />
+                           </font>
+                        </Text>
+                        <Label layoutX="89.0" layoutY="84.0" text="CHASSIS NUMBER" />
+                        <TextField fx:id="txtchassrs" layoutX="239.0" layoutY="80.0" prefHeight="25.0" prefWidth="185.0" />
+                        <Label layoutX="89.0" layoutY="145.0" text="REASON FOR REMOVAL" />
+                        <TextField fx:id="txtreason" layoutX="239.0" layoutY="141.0" prefHeight="64.0" prefWidth="185.0" />
+                        <Button fx:id="btrmstk" layoutX="254.0" layoutY="237.0" mnemonicParsing="false" onAction="#buttonRemovestk" text="remove" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+            <ScrollPane fx:id="spsell" prefHeight="200.0" prefWidth="200.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="489.0" prefWidth="584.0">
+                     <children>
+                        <Text layoutX="251.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="customer" />
+                        <Line endX="100.0" layoutX="141.0" layoutY="22.0" startX="-127.0" />
+                        <Line endX="137.0" layoutX="433.0" layoutY="23.0" startX="-123.0" />
+                        <TextField fx:id="txtfstnmsl" layoutX="102.0" layoutY="45.0" promptText="first name" />
+                        <TextField fx:id="txtscndnmsl" layoutX="292.0" layoutY="45.0" promptText="second name" />
+                        <TextField fx:id="txtidsl" layoutX="102.0" layoutY="77.0" promptText="ID number" />
+                        <TextField fx:id="txtphnsl" layoutX="102.0" layoutY="113.0" promptText="phone number" />
+                        <Text layoutX="228.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="mode of payment" />
+                        <Line endX="100.0" layoutX="115.0" layoutY="162.0" startX="-100.0" />
+                        <Line endX="138.0" layoutX="432.0" layoutY="162.0" startX="-100.0" />
+                        <CheckBox fx:id="cbdeposl" layoutX="131.0" layoutY="182.0" mnemonicParsing="false" onAction="#checkboxDeposit" text="deposit" />
+                        <CheckBox fx:id="cbflpaysl" layoutX="237.0" layoutY="182.0" mnemonicParsing="false" onAction="#checkboxFullpayment" text="full payment" />
+                        <CheckBox fx:id="cbinstallsl" layoutX="343.0" layoutY="183.0" mnemonicParsing="false" onAction="#checkboxInstallments" text="installment" />
+                        <Text layoutX="228.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="method of payment" />
+                        <Line endX="100.0" layoutX="115.0" layoutY="225.0" startX="-100.0" />
+                        <Line endX="132.0" layoutX="441.0" layoutY="225.0" startX="-100.0" />
+                        <CheckBox fx:id="cbchqsl" layoutX="139.0" layoutY="245.0" mnemonicParsing="false" onAction="#modesOfPay" text="cheque" />
+                        <CheckBox fx:id="cbbdsl" layoutX="228.0" layoutY="245.0" mnemonicParsing="false" onAction="#modesOfPay" text="bank deposit" />
+                        <CheckBox fx:id="cbcashsl" layoutX="367.0" layoutY="245.0" mnemonicParsing="false" onAction="#modesOfPay" text="cash" />
+                        <Text layoutX="262.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="vehicle purchased" />
+                        <Line endX="118.0" layoutX="128.0" layoutY="282.0" startX="-111.0" />
+                        <Line endX="105.0" layoutX="473.0" layoutY="282.0" startX="-100.0" />
+                        <TextField fx:id="txtbrandsl" alignment="CENTER" layoutX="102.0" layoutY="299.0" promptText="brand" />
+                        <TextField fx:id="txtmakesl" alignment="CENTER" layoutX="298.0" layoutY="298.0" promptText="make" />
+                        <TextField fx:id="txtchasssl" alignment="CENTER" layoutX="103.0" layoutY="334.0" promptText="chassis number" />
+                        <Text layoutX="258.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="terms of sale" />
+                        <Line endX="109.0" layoutX="139.0" layoutY="368.0" startX="-116.0" />
+                        <Line endX="109.0" layoutX="454.0" layoutY="368.0" startX="-116.0" />
+                        <TextField fx:id="txtinitdepsl" alignment="CENTER" layoutX="87.0" layoutY="383.0" promptText="intial deposite" visible="false" />
+                        <TextField fx:id="txtinstallamountsl" layoutX="401.0" layoutY="383.0" promptText="instalments in Kes" visible="false" />
+                        <TextField fx:id="txtinstallnosl" alignment="CENTER" layoutX="244.0" layoutY="383.0" promptText="no. of installments" visible="false" />
+                        <TextField fx:id="txtflamountsl" layoutX="87.0" layoutY="396.0" promptText="full amount" visible="false" />
+                        <TextField fx:id="txtthisinstallsl" layoutX="154.0" layoutY="396.0" promptText="this installment in KeS" visible="false" />
+                        <Line endX="307.0" layoutX="265.0" layoutY="430.0" startX="-234.0" />
+                        <Button fx:id="btsell" layoutX="266.0" layoutY="432.0" mnemonicParsing="false" onAction="#sellingnow" text="sell" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+            <ScrollPane fx:id="spanalyse" prefHeight="200.0" prefWidth="200.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="556.0" prefWidth="585.0">
+                     <children>
+                        <TableView fx:id="tbviewitemsold" prefHeight="545.0" prefWidth="585.0" visible="false" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="tcbrandis" prefWidth="200.0" text="BRAND" />
+                            <TableColumn fx:id="tcmodelis" prefWidth="124.0" text="MODEL" />
+                              <TableColumn fx:id="tcyearis" prefWidth="126.0" text="YEAR" />
+                              <TableColumn fx:id="tcchassisis" prefWidth="134.0" text="CHASSIS" />
+                          </columns>
+                        </TableView>
+                        <TableView fx:id="tbviewdebts" prefHeight="455.0" prefWidth="587.0" visible="false">
+                           <columns>
+                              <TableColumn fx:id="tcfnamedebt" prefWidth="114.0" text="1ST NAME" />
+                              <TableColumn fx:id="tcsnamedebt" prefWidth="109.0" text="2ND NAME" />
+                              <TableColumn fx:id="tcvehicledebt" prefWidth="114.0" text="VEHICLE BOUGHT" />
+                              <TableColumn fx:id="tcpaiddebt" prefWidth="114.0" text="PAID" />
+                              <TableColumn fx:id="tcoutstandingdebt" prefWidth="125.0" text="OUTSTANDING" />
+                           </columns>
+                        </TableView>
+                        <Text fx:id="txttataldebts" strokeType="OUTSIDE" strokeWidth="0.0" text="TOTAL OUTSTANDING DEBTS:" visible="false" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="180.0">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Text>
+                        <Label fx:id="lbanalysis" alignment="CENTER" prefHeight="30.0" prefWidth="114.0" text="00000" visible="false" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="450.0" />
+                        <TableView fx:id="tbviewprofits" layoutX="-1.0" prefHeight="455.0" prefWidth="587.0" visible="false" AnchorPane.bottomAnchor="101.0" AnchorPane.leftAnchor="-1.0">
+                           <columns>
+                              <TableColumn fx:id="tcfnameprof" prefWidth="133.0" text="1ST NAME" />
+                              <TableColumn fx:id="tcsnameprof" prefWidth="150.0" text="2ND NAME" />
+                              <TableColumn fx:id="tcvehicleprof" prefWidth="136.0" text="VEHICLE" />
+                              <TableColumn fx:id="tcpaidprof" prefWidth="160.0" text="AMOUNT PAID" />
+                           </columns>
+                        </TableView>
+                        <Text fx:id="txttotalprof" strokeType="OUTSIDE" strokeWidth="0.0" text="TOTAL PROFIT" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="350.0" />
+                        <TableView fx:id="tbviewcus" prefHeight="547.0" prefWidth="586.0" visible="false">
+                          <columns>
+                              <TableColumn fx:id="tcidcus" prefWidth="68.0" text="ID" />
+                            <TableColumn fx:id="tcfnamecus" prefWidth="76.0" text="1st NAME" />
+                            <TableColumn fx:id="tcsnamecus" prefWidth="76.0" text="2nd NAME" />
+                              <TableColumn fx:id="tcphonecus" prefWidth="73.0" text="PHONE" />
+                              <TableColumn fx:id="tcvehiclecus" prefWidth="73.0" text="VEHICLE" />
+                              <TableColumn fx:id="tctypecus" prefWidth="63.0" text="TYPE" />
+                              <TableColumn fx:id="tcpaidcus" prefWidth="81.0" text="PAID" />
+                              <TableColumn fx:id="tcbalcus" prefWidth="90.0" text="BALANCE" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+         </children>
+      </StackPane>
+   </center>
+</BorderPane>
